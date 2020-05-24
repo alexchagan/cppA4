@@ -11,7 +11,8 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "Army.hpp"
+#include "FootSoldier.hpp"
+#include "FootCommander.hpp"
 
 
 namespace WarGame {
