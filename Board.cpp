@@ -27,7 +27,7 @@ using namespace WarGame;
      for(int i = 0; i<board.size(); i++)
      {
       vector<Soldier*> v = board.at(i);
-      for(j=0; j<v.size(); j++)
+      for(int j=0; j<v.size(); j++)
       {
        if(v.at(j)->team == player_number)
         return true;
