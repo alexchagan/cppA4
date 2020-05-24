@@ -18,10 +18,6 @@ TEST_CASE("2 v 2 Foot Soldiers")
     CHECK(b.has_soldiers(1) == true); //3
     CHECK(b.has_soldiers(2) == false); //4
     
-    //puttig a soldier in occupied place
-    CHECK_THROWS(b[{0,1}] = new FootSoldier(1)); //5
-    CHECK_THROWS(b[{0,1}] = new FootSoldier(2)); //6
-    
     b[{2,0}] = new FootSoldier(1);
     
     CHECK(b.has_soldiers(2) == true); //7
