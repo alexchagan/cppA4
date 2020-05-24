@@ -1,6 +1,7 @@
 #include "doctest.h"
 #include "Board.hpp"
-#include "Army.hpp"
+#include "FootSoldier.hpp"
+#include "FootCommander.hpp"
 
 using namespace std;
 using namespace WarGame;
