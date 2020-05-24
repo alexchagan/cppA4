@@ -8,7 +8,8 @@ using namespace WarGame;
  {
      Soldier* s;
      vector<Soldier*> v1 = board.at(location.first);
-     v1.push_back(s); 
+     v1.erase(location.second);
+     v1.insert(location.second, s);
      return s;
  }
  
