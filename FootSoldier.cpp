@@ -6,10 +6,9 @@
 #include <string>
 #include <stdexcept>
 #include <vector>
-#include "Soldier.hpp"
 #include "FootSoldier.hpp"
 using namespace std;
-using namespace WarGame;
+
 
 
 
