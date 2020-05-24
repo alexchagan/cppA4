@@ -7,8 +7,7 @@
 #include <vector>
 using namespace std;
 
-namespace WarGame
-{
+
 
 class Soldier
 {
@@ -21,5 +20,5 @@ class Soldier
     virtual Soldier*& find_target(std::vector<std::vector<Soldier*>> board);
 };
 
-}
+
 #endif
