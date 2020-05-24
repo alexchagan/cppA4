@@ -8,8 +8,7 @@
 using namespace std;
 #include "Soldier.hpp"
 
-namespace WarGame
-{
+
 class FootSoldier : public Soldier
 {
   public:
@@ -18,4 +17,3 @@ class FootSoldier : public Soldier
 };
 
 #endif
-}
