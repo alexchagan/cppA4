@@ -7,7 +7,7 @@ using namespace WarGame;
  Soldier*& Board::operator[](std::pair<int,int> location)
  {
      Soldier* s;
-     vector<Soldier*> v1 = board.at(location.first)
+     vector<Soldier*> v1 = board.at(location.first);
      v1.push_back(s); 
      return s;
  }
