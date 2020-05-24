@@ -7,6 +7,8 @@ using namespace WarGame;
  Soldier*& Board::operator[](std::pair<int,int> location)
  {
      Soldier* s;
+     vector<Soldier*> v1 = board.at(location.first)
+     v1.push_back(s); 
      return s;
  }
  
@@ -22,5 +24,14 @@ using namespace WarGame;
  
  bool Board::has_soldiers(uint player_number) const
  {
-     return true;
+     for(int i = 0; i<board.size(); i++)
+     {
+      vector<Soldier*> v = board.at(i);
+      for(j=0; j<v.size(); j++)
+      {
+       if(v.at(j)->team == player_number)
+        return true;
+      }
+     }
+     return false;
  }
