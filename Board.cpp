@@ -29,7 +29,7 @@ using namespace WarGame;
       vector<Soldier*> v = board.at(i);
       for(int j=0; j<v.size(); j++)
       {
-       if(v.at(j)->team == player_number)
+       if(v.at(j)->_team == player_number)
         return true;
       }
      }
