@@ -8,7 +8,7 @@
 #include "Soldier.hpp"
 
 using namespace std;
-using namespace WarGame;
+
 
 
 Soldier::Soldier(int team)
@@ -30,10 +30,5 @@ Soldier*& Soldier::find_target(std::vector<std::vector<Soldier*>> board)
      return s;
 }
 
-int main()
-{
-    cout << "test";
-    return 0;
-}
 
 #endif
