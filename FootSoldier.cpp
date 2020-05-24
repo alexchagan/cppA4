@@ -29,12 +29,7 @@ Soldier*& FootSoldier::find_target(std::vector<std::vector<Soldier*>> board)
      return s;
 }
 
-int main()
-{
-    FootSoldier s(1);
-    cout << "as" ;
-    return 0;
-}
+
 
 
 #endif
