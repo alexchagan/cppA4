@@ -2,7 +2,7 @@
 #include "Board.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
-#include "Sniper.hpp"
+//#include "Sniper.hpp"
 #include "SniperCommander.hpp"
 
 using namespace std;
