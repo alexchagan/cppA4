@@ -1,6 +1,6 @@
 #include "doctest.h"
 #include "Board.hpp"
-#include "FootSoldier.hpp"
+//#include "FootSoldier.hpp"
 #include "FootCommander.hpp"
 //#include "Sniper.hpp"
 #include "SniperCommander.hpp"
