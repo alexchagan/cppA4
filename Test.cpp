@@ -31,31 +31,31 @@ TEST_CASE("2 v 2 Foot Soldiers")
     
     for(int i=0 ; i<5 ; i++)
     {
-    CHECK_NOTHROW(b.move(2, {2,2}, Board::MoveDIR::Up)); //52
-    CHECK_NOTHROW(b.move(2, {1,2}, Board::MoveDIR::Down)); //53
+    CHECK_NOTHROW(b.move(2, {2,2}, Board::MoveDIR::Down)); //52
+    CHECK_NOTHROW(b.move(2, {1,2}, Board::MoveDIR::Up)); //53
     }
     
-    CHECK_THROWS(b.move(1, {0,1}, Board::MoveDIR::Down)); //9 - should be dead 
+    CHECK_THROWS(b.move(1, {0,1}, Board::MoveDIR::Up)); //9 - should be dead 
     CHECK(b.has_soldiers(1) == true); //10 - player 1 has another soldier
     
     for(int i=0 ; i<5 ; i++)
     {
-    CHECK_NOTHROW(b.move(1, {0,0}, Board::MoveDIR::Down)); //54
-    CHECK_NOTHROW(b.move(1, {1,0}, Board::MoveDIR::Up)); //55
+    CHECK_NOTHROW(b.move(1, {0,0}, Board::MoveDIR::Up)); //54
+    CHECK_NOTHROW(b.move(1, {1,0}, Board::MoveDIR::Down)); //55
     }
     
-    CHECK_THROWS(b.move(1, {0,0}, Board::MoveDIR::Up)); //11 - should be dead 
+    CHECK_THROWS(b.move(1, {0,0}, Board::MoveDIR::Down)); //11 - should be dead 
     CHECK(b.has_soldiers(2) == true); //12 - player 2 has another soldier
     
      for(int i=0 ; i<5 ; i++)
     {
-    CHECK_NOTHROW(b.move(1, {0,0}, Board::MoveDIR::Down)); //56
-    CHECK_NOTHROW(b.move(1, {0,0}, Board::MoveDIR::Up)); //57
-    CHECK_NOTHROW(b.move(2, {2,2}, Board::MoveDIR::Up)); //58
-    CHECK_NOTHROW(b.move(2, {2,2}, Board::MoveDIR::Down)); //59
+    CHECK_NOTHROW(b.move(1, {0,0}, Board::MoveDIR::Up)); //56
+    CHECK_NOTHROW(b.move(1, {0,0}, Board::MoveDIR::Down)); //57
+    CHECK_NOTHROW(b.move(2, {2,2}, Board::MoveDIR::Down)); //58
+    CHECK_NOTHROW(b.move(2, {2,2}, Board::MoveDIR::Up)); //59
     }
     
-    CHECK_THROWS(b.move(2, {2,2}, Board::MoveDIR::Up)); //13 - should be dead
+    CHECK_THROWS(b.move(2, {2,2}, Board::MoveDIR::Down)); //13 - should be dead
     CHECK(b.has_soldiers(2) == false); //14 - all soldiers of player 2 are dead
     CHECK(b.has_soldiers(1) == true); //15 - player 1 soldier survived
     
@@ -80,57 +80,57 @@ TEST_CASE("Illegal Moves")
     CHECK(b.has_soldiers(1) == true); //99
     CHECK(b.has_soldiers(2) == true); //100
     
-    CHECK_THROWS(b.move(1, {0,1}, Board::MoveDIR::Up)); // 16
+    CHECK_THROWS(b.move(1, {0,1}, Board::MoveDIR::Down)); // 16
     CHECK_THROWS(b.move(1, {0,1}, Board::MoveDIR::Left)); // 17
     CHECK_THROWS(b.move(1, {0,1}, Board::MoveDIR::Right)); // 18
-    CHECK_THROWS(b.move(2, {0,1}, Board::MoveDIR::Down)); // 19 -wrong team
+    CHECK_THROWS(b.move(2, {0,1}, Board::MoveDIR::Up)); // 19 -wrong team
     
     
     CHECK_THROWS(b.move(1, {0,0}, Board::MoveDIR::Left)); // 20
     CHECK_THROWS(b.move(1, {0,0}, Board::MoveDIR::Right)); // 21
-    CHECK_THROWS(b.move(1, {0,0}, Board::MoveDIR::Up)); // 22
-    CHECK_THROWS(b.move(1, {0,0}, Board::MoveDIR::Down)); // 23
+    CHECK_THROWS(b.move(1, {0,0}, Board::MoveDIR::Down)); // 22
+    CHECK_THROWS(b.move(1, {0,0}, Board::MoveDIR::Up)); // 23
    
     
-    CHECK_THROWS(b.move(1, {0,2}, Board::MoveDIR::Down)); // 24
+    CHECK_THROWS(b.move(1, {0,2}, Board::MoveDIR::Up)); // 24
     CHECK_THROWS(b.move(1, {0,2}, Board::MoveDIR::Left)); // 25
-    CHECK_THROWS(b.move(1, {0,2}, Board::MoveDIR::Up)); // 26
+    CHECK_THROWS(b.move(1, {0,2}, Board::MoveDIR::Down)); // 26
     CHECK_THROWS(b.move(1, {0,2}, Board::MoveDIR::Right)); // 27
     
     
-    CHECK_THROWS(b.move(1, {1,0}, Board::MoveDIR::Down)); // 28
+    CHECK_THROWS(b.move(1, {1,0}, Board::MoveDIR::Up)); // 28
     CHECK_THROWS(b.move(1, {1,0}, Board::MoveDIR::Left)); // 29
-    CHECK_THROWS(b.move(1, {1,0}, Board::MoveDIR::Up)); // 30
+    CHECK_THROWS(b.move(1, {1,0}, Board::MoveDIR::Down)); // 30
     CHECK_THROWS(b.move(2, {1,0}, Board::MoveDIR::Right)); // 31 - wrong team
     
     
-    CHECK_THROWS(b.move(1, {1,1}, Board::MoveDIR::Down)); // 32 -empty space
+    CHECK_THROWS(b.move(1, {1,1}, Board::MoveDIR::Up)); // 32 -empty space
     CHECK_THROWS(b.move(1, {1,1}, Board::MoveDIR::Left)); // 33 -empty space
-    CHECK_THROWS(b.move(1, {1,1}, Board::MoveDIR::Up)); // 34 -empty space
+    CHECK_THROWS(b.move(1, {1,1}, Board::MoveDIR::Down)); // 34 -empty space
     CHECK_THROWS(b.move(1, {1,1}, Board::MoveDIR::Right)); // 35 -empty space
     
     
-    CHECK_THROWS(b.move(1, {1,2}, Board::MoveDIR::Down)); // 36
+    CHECK_THROWS(b.move(1, {1,2}, Board::MoveDIR::Up)); // 36
     CHECK_THROWS(b.move(1, {1,2}, Board::MoveDIR::Right)); // 37
-    CHECK_THROWS(b.move(1, {1,2}, Board::MoveDIR::Up)); //  38
+    CHECK_THROWS(b.move(1, {1,2}, Board::MoveDIR::Down)); //  38
     CHECK_THROWS(b.move(2, {1,2}, Board::MoveDIR::Left)); // 39 - wrong team
     
     
-    CHECK_THROWS(b.move(1, {2,0}, Board::MoveDIR::Down)); // 40
+    CHECK_THROWS(b.move(1, {2,0}, Board::MoveDIR::Up)); // 40
     CHECK_THROWS(b.move(1, {2,0}, Board::MoveDIR::Left)); // 41
-    CHECK_THROWS(b.move(1, {2,0}, Board::MoveDIR::Up)); // 42
+    CHECK_THROWS(b.move(1, {2,0}, Board::MoveDIR::Down)); // 42
     CHECK_THROWS(b.move(1, {2,0}, Board::MoveDIR::Right)); // 43
     
     
-    CHECK_THROWS(b.move(1, {2,1}, Board::MoveDIR::Down)); // 44
+    CHECK_THROWS(b.move(1, {2,1}, Board::MoveDIR::Up)); // 44
     CHECK_THROWS(b.move(1, {2,1}, Board::MoveDIR::Right)); // 45
     CHECK_THROWS(b.move(1, {2,1}, Board::MoveDIR::Left)); //  46
-    CHECK_THROWS(b.move(2, {2,1}, Board::MoveDIR::Up)); // 47 - wrong team
+    CHECK_THROWS(b.move(2, {2,1}, Board::MoveDIR::Down)); // 47 - wrong team
     
     
-    CHECK_THROWS(b.move(2, {2,2}, Board::MoveDIR::Down)); // 48
+    CHECK_THROWS(b.move(2, {2,2}, Board::MoveDIR::Up)); // 48
     CHECK_THROWS(b.move(2, {2,2}, Board::MoveDIR::Left)); // 49
-    CHECK_THROWS(b.move(2, {2,2}, Board::MoveDIR::Up)); // 50
+    CHECK_THROWS(b.move(2, {2,2}, Board::MoveDIR::Down)); // 50
     CHECK_THROWS(b.move(2, {2,2}, Board::MoveDIR::Right)); // 51
     
 }
@@ -207,12 +207,12 @@ TEST_CASE("Snipers Test")
     CHECK(b.has_soldiers(1) == true); 
     CHECK(b.has_soldiers(2) == true);
     
-    CHECK_NOTHROW(b.move(2, {2,0}, Board::MoveDIR::Up));
+    CHECK_NOTHROW(b.move(2, {2,0}, Board::MoveDIR::Down));
     CHECK_NOTHROW(b.move(1, {0,0}, Board::MoveDIR::Right));
-    CHECK_NOTHROW(b.move(1, {0,2}, Board::MoveDIR::Down));
+    CHECK_NOTHROW(b.move(1, {0,2}, Board::MoveDIR::Up));
     CHECK_NOTHROW(b.move(2, {1,0}, Board::MoveDIR::Right));
     CHECK_THROWS(b.move(1, {0,1}, Board::MoveDIR::Left)); //dead
-    CHECK_THROWS(b.move(1, {1,2}, Board::MoveDIR::Up)); //dead
+    CHECK_THROWS(b.move(1, {1,2}, Board::MoveDIR::Down)); //dead
     
     CHECK(b.has_soldiers(1) == false); 
     CHECK(b.has_soldiers(2) == true);
